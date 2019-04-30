@@ -19,7 +19,7 @@ def remove_non_strings(array)
   array.select {|element| element === "#{element}"}
 end
 
-def count_elements(array)
+def count_elements(array)  # Compare with languages test
   names = []
   counter = Hash.new(0)
   records = []
@@ -36,10 +36,11 @@ def count_elements(array)
   end 
   records
 end
+# Check with team how else this could be done
 
 def merge_data(h1, h2)  
   i = 0 
-  mod_h2 = h2[0].values
+  mod_h2 = h2[0].values # because in this case the h2.length == 1
   new_array = []
   until i == h1.length
     new_array << h1[i].merge(mod_h2[i])
@@ -47,6 +48,7 @@ def merge_data(h1, h2)
   end
   new_array
 end
+# Check with team about how else this could be done
 
 def find_cool(hash)
   i = 0
@@ -66,7 +68,7 @@ def organize_schools(hash)
     locations.uniq!
   locations.each {|loc| new_hash[loc] = []}
   hash.map do |k, v|
-  locations.any?(v.fetch(:location))
+  locations.any?(v.fetch(:location)) # If we hadn't already created the empty arrays inside the new_hash, we would need an if statement and a create and a push statement
     new_hash[v.fetch(:location)] << k
   end 
   new_hash
